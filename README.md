@@ -1,7 +1,8 @@
 # 2017-Typotheque
 Site de la typothèque de l'atelier de communication graphique.
 
-##Titres :
+## Titres :
+
 **Zuckerbäck** => patissier
 **Gros burschmutz** => Gros bisous 
 
@@ -25,12 +26,12 @@ testeur
 => blueprints (yaml)
 category / typographie / home / default
 
-###Catégorie
+### Catégorie
 
 - titre
 - année (éventuellement)
 
-###Typographie
+### Typographie
 
 - titre
 - auteur
