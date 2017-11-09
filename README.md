@@ -1,5 +1,8 @@
 # 2017-Typotheque
+
 Site de la typothèque de l'atelier de communication graphique.
+
+Nous allons utiliser le CMS KIRBY
 
 ## Titres :
 
