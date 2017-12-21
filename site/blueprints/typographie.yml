@@ -1,0 +1,34 @@
+title: Typographie
+pages: false
+files: true
+fields:
+  title:
+    label: Title
+    type:  text
+  auteur:
+    label: Auteur
+    type: text
+    width: 1/2
+  date: 
+    label: Année de production
+    type: date
+    width: 1/2
+  description:
+    label: Description
+    type:  textarea
+  font: 
+    label: Fichier typographie (format WOFF)
+    type: select
+    options: query
+    query: 
+      fetch: document
+      value: '{{filename}}'
+      text: '{{filename}}'
+  testeur:
+    label: Testeur
+    type: checkbox
+    text: Souhaitez vous l'afficher ?
+  demotext: 
+    label: Texte du testeur
+    type: textarea
+

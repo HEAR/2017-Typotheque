@@ -1,0 +1,9 @@
+title: site
+pages: 
+  template:
+    - default
+files: true
+fields:
+  title:
+    label: Title
+    type:  text

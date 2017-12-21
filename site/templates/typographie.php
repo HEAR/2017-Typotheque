@@ -1,7 +1,5 @@
 <?php snippet('header') ?>
-<!-- default.php -->
-
+<!-- typographie.php -->
 <h1><?php echo $page->title()->html() ?></h1>
-
-<!--fin default.php -->
+<!--fin typographie.php -->
 <?php snippet('footer') ?>

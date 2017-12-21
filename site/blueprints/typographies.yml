@@ -1,0 +1,12 @@
+title: Typographies
+pages:
+  template:
+    - typographie
+files: false
+fields: 
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Text
+    type:  textarea
