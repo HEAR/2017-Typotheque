@@ -2,7 +2,7 @@
 
 username: admin
 password: >
-  $2a$10$vXU7brTzncuAhGl4TGW37eBAJbXEaF5sHguxk06rEEIfKBFIDZX8u
-email: elie.partouche@hear.fr
+  $2a$10$tstRn9.51ntGzmhVYaiqSu348UDJ07nGrh5S.Ho6nE589T8rSq6SK
+email: loic.horellou@hear.fr
 language: fr
 role: admin
