@@ -15,8 +15,7 @@
 
 <li nom="<?= $typographie->auteur();  ?>"> <p url="<?= $typographie->url();?>"  > <?= $typographie->title()->html(); ?> <?= $typographie->auteur();  ?> </p> </li>
 
-<?php print_r($listNom) ?>
-	
+
 
 
 
