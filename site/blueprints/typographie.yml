@@ -6,13 +6,17 @@ fields:
     label: Title
     type:  text
   auteur:
-    label: Auteur
+    label: Nom de l'auteur
     type: text
-    width: 1/2
+    width: 1/3
+  prenom:
+    label: Prénom
+    type: text
+    width: 1/3
   date: 
     label: Année de production
     type: date
-    width: 1/2
+    width: 1/3
   description:
     label: Description
     type:  textarea

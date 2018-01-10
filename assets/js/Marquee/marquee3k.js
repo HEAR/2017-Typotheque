@@ -26,6 +26,7 @@
       this.paused = false;
       this.parent = element.parentElement;
       this.parentProps = this.parent.getBoundingClientRect();
+      this.Props= element.getBoundingClientRect()
       this.content = element.children[0];
       this.innerContent = this.content.innerHTML;
       this.wrapStyles = '';
@@ -50,7 +51,9 @@
       this.content.style.display = 'inline-block';
       this.contentWidth = this.content.offsetWidth;
 
-      this.requiredReps = this.contentWidth > this.parentProps.width ? 2 : Math.ceil((this.parentProps.width - this.contentWidth) / this.contentWidth) + 1;
+      this.requiredReps = this.contentWidth > this.parentProps.width ? 2 : Math.ceil(this.Props.width / this.contentWidth) ;
+      
+      // this.requiredReps = this.contentWidth > this.parentProps.width ? 2 : Math.floor((this.parentProps.width - this.contentWidth) / this.contentWidth) ;
 
       for (let i = 0; i < this.requiredReps; i++) {
         this._createClone();

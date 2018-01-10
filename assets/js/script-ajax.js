@@ -1,98 +1,189 @@
+var blocPresent 	= [0];
+var elListe  		= [];
+var auteur   		= []
+var listeTypos 		= document.getElementById("listeTypos");
+var menuNom   		= document.getElementsByClassName("nom");
+var menuFilter   	= document.getElementsByClassName("filter");
+var beenSortAZ = false;
+var beenSortOldToYoung = false;
 
 
-var blocPresent = [0];
-var elListe = [];
-var Auteur = []
-var listeNom = document.getElementById("liste");
+Marquee3k.init();
 
 
+for (var i = 0; i < listeTypos.children.length; i++) {
+
+	listeTypos.children[i].addEventListener("click", loadTypoContent);
+	elListe.push(listeTypos.children[i]);
 
 
-
-	for (var i = 0; i < listeNom.children.length; i++) {
 	
-		listeNom.children[i].addEventListener("click", getNom);
-		elListe.push(listeNom.children[i]);
-		
+
+	var dataDeLaTypo = {
+	dataNom: listeTypos.children[i].getAttribute('data-nom'),
+	dataDate: listeTypos.children[i].getAttribute('data-annee'),
+	position: i ,
+	element : listeTypos.children[i]
+
 	}
-	// console.log(elListe);
-	
-console.log(elListe);
 
-for (var i = 0; i < elListe.length; i++) {
-Auteur.push(elListe[i].getAttribute('nom'));
-
-	
+	auteur.push(dataDeLaTypo);
 }
 
-Auteur.sort(function(a,b){
-    return b.localeCompare(a);	
-})
+
+function tri_parNom() {
+
+var AtoZ = function compareAZ(a,b) {
+  if (a.dataNom < b.dataNom)
+    return -1;
+  if (a.dataNom > b.dataNom)
+    return 1;
+  return 0;
+
+}
+
+ var ZtoA = function compareZA(a,b) {
+  if (a.dataNom > b.dataNom)
+    return -1;
+  if (a.dataNom < b.dataNom)
+    return 1;
+  return 0;
+}
 
 
-console.log(Auteur);
+ if (beenSortAZ == false) {
+ 	 auteur.sort(AtoZ) 
+ 	 beenSortAZ = true
+ 	}
+else {
+ 	auteur.sort(ZtoA)
+ 	beenSortAZ = false
+ }
 
-function getNom(e){
 
-	// console.log(e.target)
+while(listeTypos.firstChild){
+	listeTypos.removeChild(listeTypos.firstChild);
+}
+
+
+for (var i = 0; i < auteur.length; i++) {
+	listeTypos.appendChild(auteur[i].element);
+
+}
+
+
+}
+
+function tri_parAnnee(){
+
+function compareOldToYoung(a,b) {
+  if (a.dataDate > b.dataDate)
+    return -1;
+  if (a.dataDate < b.dataDate)
+    return 1;
+  return 0;
 
 
 
-	fetch(e.target.getAttribute('url'))
+}
+
+function compareYoungToOld(a,b) {
+  if (a.dataDate < b.dataDate)
+    return -1;
+  if (a.dataDate > b.dataDate)
+    return 1;
+  return 0;
+
+}
+
+ if (beenSortOldToYoung == false) {
+ 	auteur.sort(compareOldToYoung);
+ 	 beenSortOldToYoung= true
+ 	}
+else {
+ 	auteur.sort(compareYoungToOld)
+ 	beenSortOldToYoung = false
+ }
+
+while(listeTypos.firstChild){
+	listeTypos.removeChild(listeTypos.firstChild);
+}
+
+
+for (var i = 0; i < auteur.length; i++) {
+	listeTypos.appendChild(auteur[i].element);
+
+}
+
+}
+
+
+
+	
+console.log(menuFilter);
+for (var i = 0; i < menuFilter.length; i++) {
+
+	menuFilter[i].addEventListener("click", filterListTypos);
+
+}
+
+for (var i = 0; i < elListe.length; i++) {
+
+	elListe[i].addEventListener("click", loadTypoContent);
+}
+
+
+function filterListTypos(e){
+	e.stopPropagation();
+
+	if (e.currentTarget.getAttribute('data-filter') == "nom" ) {
+
+		tri_parNom();
+	}
+	else if (e.currentTarget.getAttribute('data-filter') == "annee" ){
+
+		tri_parAnnee();
+
+	}
+
+
+}
+
+
+function loadTypoContent(e){
+
+	e.stopPropagation();
+
+	console.log("getNom",e.currentTarget	)
+
+
+
+
+
+	fetch(e.currentTarget.getAttribute('data-url'))
 	.then( function(res){
-
-return res.text();
-
-
+		return res.text();
 	})
 	.then(function(data){
 
-
 		var corp = document.body;
 		var ficheTypo = document.getElementById("fichetypo");
-		console.log(data);
+
 		
 		if (blocPresent[0] == 1) {
 
-			console.log("ok");
-
-			
 			while (ficheTypo.firstChild) {
-  			ficheTypo.removeChild(ficheTypo.firstChild);}
-
-  			ficheTypo.insertAdjacentHTML('afterbegin', data);
-
+  				ficheTypo.removeChild(ficheTypo.firstChild);
+  			}
+  			ficheTypo.insertAdjacentHTML('beforeend', data);
 		}
+		else {
+			blocPresent.splice(0,1,1)
+			ficheTypo.insertAdjacentHTML('beforeend', data);
+		};
 
-
-
-			 else {
-
-				console.log("lol");
-				blocPresent.splice(0,1,1)
-
-				ficheTypo.insertAdjacentHTML('afterbegin', data);
-
-			};
-
-
-
-		
-				// var bloc = document.createElement("div");
-
-			// console.log(data);
-				// bloc.insertAdjacentHTML('afterbegin', data);
-				
-				// var contenuPage = document.createTextNode(data);
-				// contenuPageReg = contenuPage.replace(/^"/igm,"");
-				// console.log(contenuPageReg);
-				
-				
-
-			// corp.appendChild(bloc);
 
 	})
-	
 }	
 
 
@@ -100,47 +191,5 @@ return res.text();
 
 			
 
-// function makeRequest(url) {
-
-//         var httpRequest = false;
-
-//         httpRequest = new XMLHttpRequest();
-
-//         if (!httpRequest) {
-//             alert('Abandon :( Impossible de créer une instance XMLHTTP');
-//             return false;
-//         }
-
-//         httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
-//         httpRequest.open('GET', url, true);
-//         httpRequest.send(null);
-
-//     }
-
-//     function alertContents(httpRequest) {
-
-//         if (httpRequest.readyState == XMLHttpRequest.DONE) {
-//             if (httpRequest.status == 200) {
-//     //             var xmldoc = httpRequest.responseXML;
-// 				// var root_node = xmldoc.getElementsByTagName('h1').item(0);
-				
-// 				// var corp = document.body
-// 				// // var bloc = document.createElement("div")
-
-// 				// corp.appendChild(root_node);
-// 				console.log(url);
-
-
-
-// 				// console.log(root_node.firstChild.data);
-//             } else {
-//                 alert('Un problème est survenu avec la requête.');
-//             }
-//         }
-
-//     }
-
-
- // window.onload = elementClickable ; 
 
 

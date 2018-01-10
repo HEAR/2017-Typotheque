@@ -6,7 +6,7 @@ Text:
 
 ----
 
-Auteur: Elie Partouche
+Auteur: Partouche
 
 ----
 
@@ -27,3 +27,7 @@ Testeur: 0
 ----
 
 Demotext: 
+
+----
+
+Prenom: Elie

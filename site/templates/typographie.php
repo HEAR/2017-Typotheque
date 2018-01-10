@@ -1,12 +1,12 @@
 
 <!-- typographie.php -->
-<h1><?php echo $page->title()->html() ?></h1>
+<h1><?= $page->title()->html() ?></h1>
 
 
 
-<p><?php echo $page->auteur(); ?></p>
-<p>  <?php echo $page->date(); ?></p>
-<p>  <?php echo $page->description(); ?></p>
+<p><?= $page->auteur()->text(); ?></p>
+<p><?= $page->date("Y"); ?></p>
+<p><?= $page->description()->kirbyText(); ?></p>
 
 <div style="width: 500px; height: 400px; background-color: grey;">
 	<p> testeur</p>
