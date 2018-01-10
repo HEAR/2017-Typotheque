@@ -66,6 +66,7 @@ margin: 0px;
   grid-row: 3/20;
   background-color: black;
   font-size: 1.5vw;
+/*  display: inline;*/
 
 }
 
@@ -140,7 +141,41 @@ ul{
 
 .marquee3K {
 
-/*widtt*/
+
+}
+
+.square {
+  width: 40%;
+  height: 40%;
+  float: left;
+  /*border: solid;*/
+  margin: 1px;
+  background-color: white;
+}
+
+.itemList {
+
+  height: 16%;
+  width: 90%;
+  margin-bottom: 10%; 
+/*  background-color: none !important;*/
+  float: none;
+
+}
+
+.enLigne{
+
+margin: none;
+padding: none;
+border-bottom: solid 1px;
+
+}
+
+.enBloc{
+
+  margin: 0.3vw;
+  padding: 0.3vw;
+  border: solid 1px;
 
 }
 

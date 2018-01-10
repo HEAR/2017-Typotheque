@@ -6,9 +6,9 @@
 		<li class="nested filter" data-filter="annee"> Année</li>
 		<li class="nested filter" data-filter="nom"> Nom</li>
 		<li class="nested filter" data-filter="projet"> Projet</li>
-		<li class="nested sort">
-		
-		</li>
+		<li class="nested sort"  data-filter="affichage">
+		<div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div>
+		 </li>
 	</ul>
 </div>
 
