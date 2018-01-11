@@ -1,4 +1,4 @@
-<?= js('assets/js/list.min.js'); ?>
+
 <?= js('assets/js/Marquee/marquee3k.js'); ?>
 <?= js('assets/js/script-ajax.js'); ?>
 
