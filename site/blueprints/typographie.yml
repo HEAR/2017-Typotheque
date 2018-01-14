@@ -35,4 +35,15 @@ fields:
   demotext: 
     label: Texte du testeur
     type: textarea
+  image:
+    label: Fichier image
+    type: image
+    # options: query
+    # query: 
+    #   fetch: document
+    #   value: '{{filename}}'
+    #   text: '{{filename}}'
+
+
+
 

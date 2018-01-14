@@ -156,6 +156,7 @@ function filterListTypos(e){
 
 var menuSort 		= document.getElementsByClassName("sort");
 menuSort[0].addEventListener("click", modifyDisplay);	
+console.log(menuSort)
 
 
 function modifyDisplay(e){
@@ -228,7 +229,7 @@ function loadTypoContent(e){
 
 	e.stopPropagation();
 
-	console.log("getNom",e.currentTarget	)
+	// console.log("getNom",e.currentTarget	);
 
 
 
@@ -256,9 +257,56 @@ function loadTypoContent(e){
 			ficheTypo.insertAdjacentHTML('beforeend', data);
 		};
 
-
+		affichageTesteur();
+		
 	})
+	
 }	
+
+
+
+function affichageTesteur(){
+
+var conteneur = document.getElementsByClassName("container");
+var afficherLeTesteur = document.getElementsByClassName("testeur");
+var fontSize = document.querySelectorAll('input');
+
+console.log(afficherLeTesteur);
+var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
+
+
+if (leGrosBool == 1) {
+	conteneur[0].style.visibility = 'visible';
+	afficherLeTesteur[0].style.visibility = 'visible';
+	fontSize[0].style.visibility = 'visible';
+
+} else if (leGrosBool == 0) {
+	conteneur[0].style.display = 'none';
+	afficherLeTesteur[0].style.display = 'none';
+	fontSize[0].style.display = 'none';
+}
+
+var textDuTesteur = document.createTextNode(afficherLeTesteur[0].getAttribute("data-text"));
+afficherLeTesteur[0].appendChild(textDuTesteur);
+console.log(textDuTesteur);
+
+
+
+fontSize[0].addEventListener('input', function(){
+
+		var v = this.value;
+		afficherLeTesteur[0].style.fontSize = v+"vh";
+	})
+
+
+}
+
+
+
+	
+
+
+
 
 
 

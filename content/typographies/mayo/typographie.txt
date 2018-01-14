@@ -1,0 +1,29 @@
+Title: Mayo
+
+----
+
+Auteur: Dupont
+
+----
+
+Prenom: Bob
+
+----
+
+Date: 2013-09-13
+
+----
+
+Description: Beau gosse
+
+----
+
+Font: 
+
+----
+
+Testeur: 0
+
+----
+
+Demotext: 

@@ -1,5 +1,11 @@
 body {
   font-family: arial;
+  background-color: black;
+}
+
+#header{
+/*  text-align: center;*/
+  font-size: 1.6vw;
 }
 
 .wrapper{
@@ -75,13 +81,20 @@ margin: 0px;
 
   
 }
+.box3 ul p {
+   margin: 1vw;
+
+  
+}
 
 .box4 {
   grid-column-start: 3;
   grid-column-end: 7;
   grid-row: 1/20;
-  background-color: pink;
+  background-color: black;
   z-index: 4;
+/*  display: grid;*/
+/*  grid-template-columns: 1fr 1fr 1fr;*/
 }
 
 h1 {
@@ -145,19 +158,21 @@ ul{
 }
 
 .square {
-  width: 40%;
-  height: 40%;
+position: relative;
+left: 0.3vh;
+  width: 1.3vh;
+  height: 1.3vh;
   float: left;
-  /*border: solid;*/
-  margin: 1px;
-  background-color: white;
+  border: 1px solid white;
+  margin: 0.5px;
+ /* background-color: white;*/
 }
 
 .itemList {
 
   height: 16%;
-  width: 90%;
-  margin-bottom: 10%; 
+  width: 80%;
+  margin-bottom: 7%; 
 /*  background-color: none !important;*/
   float: none;
 
@@ -165,9 +180,11 @@ ul{
 
 .enLigne{
 
+width: 1vh;
 margin: none;
 padding: none;
 border-bottom: solid 1px;
+
 
 }
 
@@ -179,3 +196,159 @@ border-bottom: solid 1px;
 
 }
 
+/*.dateTypo{
+
+font-size: 50px;
+
+
+}*/
+
+.container{
+  width: 55vw;
+  height: 30vw;
+  background-color: black;
+  border: solid 1px white;
+ padding: 1vw;
+ margin: 1vw;
+ margin-bottom: 0;
+ overflow: scroll;
+
+
+}
+.testeur {
+
+  
+  text-align: center;
+  color: white;
+  overflow: scroll;
+  top: 30%;
+  position: relative;
+   -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  -o-transform:      translateY(-50%);
+  transform:         translateY(-50%);
+  position: relative;
+  font-size: 7vw;
+
+
+
+}
+
+.titreTypo{
+  position: relative;
+  left: 0.5vw;
+  margin: 0.5vw;
+  background-color: lime;
+}
+
+.description {
+  position: relative;
+  left: 1.3vw;
+  color: white;
+
+}
+
+.description p {
+    margin: 0;
+    font-size: 1.5vw;
+
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+
+input[type=range] {
+  position: relative;
+    left: 2.3vw;
+    top:-2.5vw;
+  height: 1px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 20%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #FFFFFF;
+  border-radius: 0px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #FFFFFF;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #FFFFFF;
+  border-radius: 0px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #FFFFFF;
+  border: 0px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #FFFFFF;
+  border: 0px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #FFFFFF;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #FFFFFF;
+}
