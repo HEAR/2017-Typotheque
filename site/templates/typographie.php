@@ -3,7 +3,7 @@
 
 
 <div class="container">
-<div  contenteditable="plainText-only" class="testeur"  data-boolean="<?= $page->testeur()?>" data-text="<?= $page->demotext();	?>  " >
+<div  contenteditable="plainText-only" class="testeur"  data-boolean="<?= $page->testeur()?>" data-text="<?= $page->demotext();	?>  " data-font="<?= $page->font();	?>" >
 </div>
 
 </div>
@@ -15,5 +15,6 @@
 <!-- <p class="dateTypo"><?= $page->date("Y"); ?></p> -->
 <div class="description">
 <p><?= $page->description()->kirbyText(); ?></p>
+
 </div>
 

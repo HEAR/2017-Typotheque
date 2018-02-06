@@ -17,5 +17,5 @@
 <body class="wrapper">
 
 <div id="header" class="box1 marquee3k" data-speed="0.5" data-reverse="true" data-pausable="true"> 
-<h1>
-<?php echo $page->title()->html() ?></h1> </div>
+<a href="<?= $page->url() ?>">
+<?php echo $page->title()->html() ?></a></div>

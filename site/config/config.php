@@ -19,11 +19,14 @@ c::set('license', 'put your license key here');
 
 c::set('debug', true);
 
+f::$types['font'] = array('otf', 'ttf', 'woff', 'woff2', 'eot');
+
 /*
 
 ---------------------------------------
 Kirby Configuration
 ---------------------------------------
+
 
 By default you don't have to configure anything to
 make Kirby work. For more fine-grained configuration

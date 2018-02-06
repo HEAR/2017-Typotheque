@@ -186,6 +186,7 @@ function modifyDisplay(e){
 
 			listeTypos.style.display = 'grid';
 			listeTypos.style["grid-template-columns"] = "1fr 1fr 1fr 1fr";
+			// listeTypos.style.borderBottom = 'none';
 
 
 			for (var i = 0; i < listeTypos.children.length; i++) {
@@ -253,11 +254,17 @@ function loadTypoContent(e){
   			ficheTypo.insertAdjacentHTML('beforeend', data);
 		}
 		else {
+
+			while (ficheTypo.firstChild) {
+  				ficheTypo.removeChild(ficheTypo.firstChild);
+  			}
 			blocPresent.splice(0,1,1)
 			ficheTypo.insertAdjacentHTML('beforeend', data);
 		};
 
 		affichageTesteur();
+
+
 		
 	})
 	
@@ -273,10 +280,16 @@ var fontSize = document.querySelectorAll('input');
 
 console.log(afficherLeTesteur);
 var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
+var font = afficherLeTesteur[0].getAttribute("data-font");
+var fontName = font.substr(0, font.lastIndexOf('.')) || font;
+
+
+
 
 
 if (leGrosBool == 1) {
 	conteneur[0].style.visibility = 'visible';
+	conteneur[0].style.fontFamily = fontName ;
 	afficherLeTesteur[0].style.visibility = 'visible';
 	fontSize[0].style.visibility = 'visible';
 
@@ -296,6 +309,8 @@ fontSize[0].addEventListener('input', function(){
 
 		var v = this.value;
 		afficherLeTesteur[0].style.fontSize = v+"vh";
+		afficherLeTesteur[0].style.lineHeight = v>7 ? 1 : 1-v/70 ;
+
 	})
 
 

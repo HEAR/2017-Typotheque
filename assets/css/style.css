@@ -3,9 +3,10 @@ body {
   background-color: black;
 }
 
-#header{
-/*  text-align: center;*/
-  font-size: 1.6vw;
+#header a{
+text-decoration: none;
+  font-size: 3.3vw;
+  color: white;
 }
 
 .wrapper{
@@ -82,7 +83,7 @@ margin: 0px;
   
 }
 .box3 ul p {
-   margin: 1vw;
+/*   margin: 1vw;*/
 
   
 }
@@ -93,8 +94,16 @@ margin: 0px;
   grid-row: 1/20;
   background-color: black;
   z-index: 4;
+
 /*  display: grid;*/
 /*  grid-template-columns: 1fr 1fr 1fr;*/
+}
+
+.box4 p {
+  position: relative;
+  color: white;
+  font-size: 2.5vw;
+  left: 2.5vw;
 }
 
 h1 {
@@ -221,7 +230,7 @@ font-size: 50px;
   text-align: center;
   color: white;
   overflow: scroll;
-  top: 30%;
+  top: 50%;
   position: relative;
    -webkit-transform: translateY(-50%);
   -moz-transform:    translateY(-50%);
@@ -244,7 +253,7 @@ font-size: 50px;
 
 .description {
   position: relative;
-  left: 1.3vw;
+  left: 1vw;
   color: white;
 
 }

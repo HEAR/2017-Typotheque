@@ -25,7 +25,7 @@ fields:
     type: select
     options: query
     query: 
-      fetch: document
+      fetch: files
       value: '{{filename}}'
       text: '{{filename}}'
   testeur:
@@ -38,6 +38,7 @@ fields:
   image:
     label: Fichier image
     type: image
+
     # options: query
     # query: 
     #   fetch: document
