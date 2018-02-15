@@ -50,12 +50,15 @@ category / typographie / home / default
 
 ### To do list 
 
+-detection typo et du scroll dans le testeur // Elie
+-menu deroulant projet // Ambre
+-animation de l'introduction (skrollr) + cookie pour pas repeter l'introduction // Marie Elise
+-mise en forme du contenu gauche et droite // Julien
+-gerer l'historique // Elie
 
--detection typo et du scroll dans le testeur
--menu deroulant projet
--animation de l'introduction (skrollr) + cookie pour pas repeter l'introduction
--mise en forme du contenu gauche
--gerer l'historique
+### Liens
+
+- http://ezekielaquino.com/Marquee3000/
 
 
 -> liste 2 grille = https://jsfiddle.net/sej7ba35/
