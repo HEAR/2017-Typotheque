@@ -48,4 +48,14 @@ category / typographie / home / default
 - catégorie (sujet / projet)
 
 
+### To do list 
+
+
+-detection typo et du scroll dans le testeur
+-menu deroulant projet
+-animation de l'introduction (skrollr) + cookie pour pas repeter l'introduction
+-mise en forme du contenu gauche
+-gerer l'historique
+
+
 -> liste 2 grille = https://jsfiddle.net/sej7ba35/
