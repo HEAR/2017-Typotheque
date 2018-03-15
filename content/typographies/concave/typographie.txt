@@ -18,7 +18,7 @@ Description: Superbe typographie
 
 ----
 
-Font: concave-concaveregular.woff
+Font: concave.woff
 
 ----
 
@@ -26,7 +26,7 @@ Testeur: 1
 
 ----
 
-Demotext: TOTOTOTOTOTO
+Demotext: Hello World!
 
 ----
 

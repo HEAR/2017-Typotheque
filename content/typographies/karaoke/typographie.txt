@@ -14,15 +14,15 @@ Description: Magnifique
 
 ----
 
-Font: 
+Font: karaoke.woff
 
 ----
 
-Testeur: 0
+Testeur: 1
 
 ----
 
-Demotext: 
+Demotext: afp
 
 ----
 

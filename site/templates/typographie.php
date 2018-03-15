@@ -1,9 +1,16 @@
 
-<!-- typographie.php -->
 
 
 <div class="container">
-<div  contenteditable="plainText-only" class="testeur"  data-boolean="<?= $page->testeur()?>" data-text="<?= $page->demotext();	?>  " data-font="<?= $page->font();	?>" >
+<div  contenteditable="plainText-only" class="testeur"  data-boolean="<?= $page->testeur()?>" data-text="<?= $page->demotext();	?>  " data-font="<?php 
+// always check if the image exists! 
+  if ($page->font()) {
+	echo $font = $page->font(); 
+  }
+  else {
+  	echo "none";
+  }
+ ?>">
 </div>
 
 </div>
@@ -17,4 +24,5 @@
 <p><?= $page->description()->kirbyText(); ?></p>
 
 </div>
+
 

@@ -10,9 +10,11 @@ var beenSortOldToYoung = false;
 var typoEnBloc = false;
 
 
-
 Marquee3k.init();
-
+///////////////////////////////////////////////////////////////
+// Creation d'objet javascript avec le nom, l'annee 
+//  et l'element HTML qui correspond a chaque typo
+///////////////////////////////////////////////////////////////
 
 for (var i = 0; i < listeTypos.children.length; i++) {
 
@@ -32,7 +34,9 @@ for (var i = 0; i < listeTypos.children.length; i++) {
 
 	auteur.push(dataDeLaTypo);
 }
-
+///////////////////////////////////////////////////////////////
+// tri par nom
+///////////////////////////////////////////////////////////////
 
 function tri_parNom() {
 
@@ -77,6 +81,9 @@ function tri_parNom() {
 
 }
 
+///////////////////////////////////////////////////////////////
+// tri par année 
+///////////////////////////////////////////////////////////////
 function tri_parAnnee(){
 
 	function compareOldToYoung(a,b) {
@@ -135,6 +142,9 @@ for (var i = 0; i < elListe.length; i++) {
 	elListe[i].addEventListener("click", loadTypoContent);
 }
 
+///////////////////////////////////////////////////////////////
+// Bouton et activation des fonctions de tri
+///////////////////////////////////////////////////////////////
 
 function filterListTypos(e){
 	e.stopPropagation();
@@ -158,7 +168,9 @@ var menuSort 		= document.getElementsByClassName("sort");
 menuSort[0].addEventListener("click", modifyDisplay);	
 console.log(menuSort)
 
-
+///////////////////////////////////////////////////////////////
+// transformation de liste a grille
+///////////////////////////////////////////////////////////////
 function modifyDisplay(e){
 	e.stopPropagation();
 
@@ -223,7 +235,9 @@ function modifyDisplay(e){
 
 }
 
-
+///////////////////////////////////////////////////////////////
+// Ajax de chargement du contenu des pages typos
+///////////////////////////////////////////////////////////////
 
 
 function loadTypoContent(e){
@@ -270,6 +284,9 @@ function loadTypoContent(e){
 	
 }	
 
+///////////////////////////////////////////////////////////////
+// Fonction pour afficher le testeur 
+///////////////////////////////////////////////////////////////
 
 
 function affichageTesteur(){
@@ -278,7 +295,7 @@ var conteneur = document.getElementsByClassName("container");
 var afficherLeTesteur = document.getElementsByClassName("testeur");
 var fontSize = document.querySelectorAll('input');
 
-console.log(afficherLeTesteur);
+// console.log(afficherLeTesteur);
 var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
 var font = afficherLeTesteur[0].getAttribute("data-font");
 var fontName = font.substr(0, font.lastIndexOf('.')) || font;
@@ -288,10 +305,14 @@ var fontName = font.substr(0, font.lastIndexOf('.')) || font;
 
 
 if (leGrosBool == 1) {
+	// CSSRule.FONT_FACE_RULE.fontFamily += fontName;
+	// CSSRule.FONT_FACE_RULE.src = font;
+	
 	conteneur[0].style.visibility = 'visible';
 	conteneur[0].style.fontFamily = fontName ;
 	afficherLeTesteur[0].style.visibility = 'visible';
 	fontSize[0].style.visibility = 'visible';
+
 
 } else if (leGrosBool == 0) {
 	conteneur[0].style.display = 'none';
@@ -301,7 +322,35 @@ if (leGrosBool == 1) {
 
 var textDuTesteur = document.createTextNode(afficherLeTesteur[0].getAttribute("data-text"));
 afficherLeTesteur[0].appendChild(textDuTesteur);
-console.log(textDuTesteur);
+// console.log(textDuTesteur);
+
+var stylesheet = document.styleSheets[0];
+// console.log(stylesheet.cssRules[1].cssText);
+
+// if () {}
+// var newStyle = document.head.querySelectorAll('style');
+var newStyle = document.getElementsByClassName('style');
+// console.log(newStyle);
+if(newStyle.length > 1)	 {
+	console.log("hello");
+	
+	
+	document.removeChild(newStyle[0]);
+}
+
+
+
+	var newFont = document.createElement('style');
+	newFont.className += 'style';
+	newFont.appendChild(document.createTextNode("\
+	@font-face {\
+	    font-family: " + fontName + ";\
+	    src: url('content/typographies/" + fontName + "/" + font + "') format('woff');\
+	}\
+	"));
+
+document.head.appendChild(newFont);
+
 
 
 
@@ -315,6 +364,7 @@ fontSize[0].addEventListener('input', function(){
 
 
 }
+
 
 
 

@@ -14,7 +14,7 @@ Date: 2016-10-01
 
 ----
 
-Description: Gout majestueux
+Description: 
 
 ----
 
@@ -26,7 +26,7 @@ Testeur: 1
 
 ----
 
-Demotext: Je suis le texte du testeur bonjour
+Demotext: Bonjour Valentin
 
 ----
 
