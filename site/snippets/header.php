@@ -7,6 +7,8 @@
 
   <title ><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
 
+  <link rel="stylesheet" type="text/css" id="police" href="">
+
   <?php echo css(
 
 'assets/css/style.css'

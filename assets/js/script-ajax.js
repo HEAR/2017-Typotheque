@@ -244,8 +244,10 @@ function loadTypoContent(e){
 
 	e.stopPropagation();
 
-	// console.log("getNom",e.currentTarget	);
 
+	// chercher le nom du fichier CSS de la typo
+	//chercher la balise link dans la balise head et modifier son HREF
+	// url.split('/').pop() + "css"
 
 
 
@@ -276,7 +278,10 @@ function loadTypoContent(e){
 			ficheTypo.insertAdjacentHTML('beforeend', data);
 		};
 
+
+
 		affichageTesteur();
+
 
 
 		
@@ -298,23 +303,26 @@ var fontSize = document.querySelectorAll('input');
 // console.log(afficherLeTesteur);
 var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
 var font = afficherLeTesteur[0].getAttribute("data-font");
-var fontName = font.substr(0, font.lastIndexOf('.')) || font;
+// var fontName = font.substr(0, font.lastIndexOf('.')) || font;
+var lien = document.getElementById("police");
+console.log(lien);
+
+
 
 
 
 
 
 if (leGrosBool == 1) {
-	// CSSRule.FONT_FACE_RULE.fontFamily += fontName;
-	// CSSRule.FONT_FACE_RULE.src = font;
 	
 	conteneur[0].style.visibility = 'visible';
-	conteneur[0].style.fontFamily = fontName ;
+	conteneur[0].style.fontFamily = font.split('/').pop();
 	afficherLeTesteur[0].style.visibility = 'visible';
 	fontSize[0].style.visibility = 'visible';
+	lien.setAttribute("href","content/"+font+"/"+font.split('/').pop()+".css");
 
-
-} else if (leGrosBool == 0) {
+} 
+else if (leGrosBool == 0) {
 	conteneur[0].style.display = 'none';
 	afficherLeTesteur[0].style.display = 'none';
 	fontSize[0].style.display = 'none';
@@ -322,35 +330,6 @@ if (leGrosBool == 1) {
 
 var textDuTesteur = document.createTextNode(afficherLeTesteur[0].getAttribute("data-text"));
 afficherLeTesteur[0].appendChild(textDuTesteur);
-// console.log(textDuTesteur);
-
-var stylesheet = document.styleSheets[0];
-// console.log(stylesheet.cssRules[1].cssText);
-
-// if () {}
-// var newStyle = document.head.querySelectorAll('style');
-var newStyle = document.getElementsByClassName('style');
-// console.log(newStyle);
-if(newStyle.length > 1)	 {
-	console.log("hello");
-	
-	
-	document.removeChild(newStyle[0]);
-}
-
-
-
-	var newFont = document.createElement('style');
-	newFont.className += 'style';
-	newFont.appendChild(document.createTextNode("\
-	@font-face {\
-	    font-family: " + fontName + ";\
-	    src: url('content/typographies/" + fontName + "/" + font + "') format('woff');\
-	}\
-	"));
-
-document.head.appendChild(newFont);
-
 
 
 
@@ -364,19 +343,5 @@ fontSize[0].addEventListener('input', function(){
 
 
 }
-
-
-
-
-	
-
-
-
-
-
-
-
-			
-
 
 
