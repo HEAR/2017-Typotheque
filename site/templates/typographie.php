@@ -1,4 +1,4 @@
-
+<!-- création du fichier css correspondant a chaque typo -->
 <?php 
 
 $fontname = str_replace(".woff", "", $page->font());
@@ -19,18 +19,12 @@ file_put_contents($page->root().'/'.$page->dirname().'.css', $fontFace);
 
 </div>
 <input type="range" class="nested" min="5" max="40">
-<!-- <h2 class="titreTypo"><?= $page->title()->html() ?></h2> -->
-<!--fin typographie.php -->
 
-<!-- <p><?= $page->auteur()->text(); ?></p> -->
-<!-- <p class="dateTypo"><?= $page->date("Y"); ?></p> -->
 <div class="description">
 
 
-<br>
-<?= $page->dirname() ?><br>
-<?= $page->diruri() ?><br>
-<?= $page->root() ?><br>
+
+<!--dirname() diruri() root() ?> -->
 
 <p><?= $page->description()->kirbyText(); ?></p>
 

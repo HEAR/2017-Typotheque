@@ -8,6 +8,9 @@ var menuFilter   	= document.getElementsByClassName("filter");
 var beenSortAZ = false;
 var beenSortOldToYoung = false;
 var typoEnBloc = false;
+var rooot = window.location.pathname;
+
+
 
 
 Marquee3k.init();
@@ -16,9 +19,21 @@ Marquee3k.init();
 //  et l'element HTML qui correspond a chaque typo
 ///////////////////////////////////////////////////////////////
 
+// history.pushState(null,null,document.location.pathname);
+
 for (var i = 0; i < listeTypos.children.length; i++) {
 
-	listeTypos.children[i].addEventListener("click", loadTypoContent);
+	listeTypos.children[i].addEventListener("click", function(event){
+	
+	event.preventDefault();
+	var url = event.currentTarget.getAttribute('data-url');
+	loadTypoContent(url);
+	var lien= url.split('/').pop();
+
+	history.pushState(url,null, lien);
+
+	});
+
 	elListe.push(listeTypos.children[i]);
 
 
@@ -34,6 +49,8 @@ for (var i = 0; i < listeTypos.children.length; i++) {
 
 	auteur.push(dataDeLaTypo);
 }
+
+
 ///////////////////////////////////////////////////////////////
 // tri par nom
 ///////////////////////////////////////////////////////////////
@@ -130,17 +147,17 @@ function tri_parAnnee(){
 
 
 	
-console.log(menuFilter);
+
 for (var i = 0; i < menuFilter.length; i++) {
 
 	menuFilter[i].addEventListener("click", filterListTypos);
 
 }
 
-for (var i = 0; i < elListe.length; i++) {
+// for (var i = 0; i < elListe.length; i++) {
 
-	elListe[i].addEventListener("click", loadTypoContent);
-}
+// 	elListe[i].addEventListener("click", loadTypoContent);
+// }
 
 ///////////////////////////////////////////////////////////////
 // Bouton et activation des fonctions de tri
@@ -240,26 +257,30 @@ function modifyDisplay(e){
 ///////////////////////////////////////////////////////////////
 
 
-function loadTypoContent(e){
+function loadTypoContent(url){
 
-	e.stopPropagation();
+
+
 
 
 	// chercher le nom du fichier CSS de la typo
 	//chercher la balise link dans la balise head et modifier son HREF
 	// url.split('/').pop() + "css"
 
+		// console.log(url);
 
-
-
-	fetch(e.currentTarget.getAttribute('data-url'))
+	fetch(url)
 	.then( function(res){
 		return res.text();
+		
 	})
 	.then(function(data){
+		
+
 
 		var corp = document.body;
 		var ficheTypo = document.getElementById("fichetypo");
+	
 
 		
 		if (blocPresent[0] == 1) {
@@ -268,6 +289,7 @@ function loadTypoContent(e){
   				ficheTypo.removeChild(ficheTypo.firstChild);
   			}
   			ficheTypo.insertAdjacentHTML('beforeend', data);
+  		
 		}
 		else {
 
@@ -276,16 +298,27 @@ function loadTypoContent(e){
   			}
 			blocPresent.splice(0,1,1)
 			ficheTypo.insertAdjacentHTML('beforeend', data);
+			
+
+
+
 		};
 
-
-
-		affichageTesteur();
-
-
+		// url.stopPropagation();
+		// url.preventDefault();
 
 		
-	})
+		
+		
+		affichageTesteur();
+
+			
+		
+	});
+
+
+
+
 	
 }	
 
@@ -305,7 +338,11 @@ var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
 var font = afficherLeTesteur[0].getAttribute("data-font");
 // var fontName = font.substr(0, font.lastIndexOf('.')) || font;
 var lien = document.getElementById("police");
-console.log(lien);
+
+var afficherLeTesteur = document.getElementsByClassName("testeur");
+var font = afficherLeTesteur[0].getAttribute("data-font");
+var url = font.split('/').pop();
+
 
 
 
@@ -341,6 +378,20 @@ fontSize[0].addEventListener('input', function(){
 
 	})
 
+	
+}
+
+window.onpopstate = function(event){
+// console.log(window.location.pathname);
+
+if (event.state !== null){
+
+loadTypoContent(event.state);
+}
+
+else{
+location.reload();
+}
 
 }
 
