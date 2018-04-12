@@ -50,11 +50,11 @@ category / typographie / home / default
 
 ### To do list 
 
-- detection typo et du scroll dans le testeur // Elie
+- detection typo et du scroll dans le testeur // Elie  ✔
 - menu deroulant projet // Ambre
 - animation de l'introduction (skrollr) + cookie pour pas repeter l'introduction // Marie Elise
 - mise en forme du contenu gauche et droite // Julien
-- gerer l'historique // Elie
+- gerer l'historique // Elie ✔ ( pour l'instant on ne peut pas acceder à la page correspondnant à chaque typo mais seulement naviguer avec les boutons (precedent et page suivante) du navigateurs)
 
 ### Liens
 

@@ -10,7 +10,7 @@ var beenSortOldToYoung = false;
 var typoEnBloc = false;
 var rooot = window.location.pathname;
 
-
+var baseURL = document.querySelector("meta[name=base]").getAttribute("href") ;
 
 
 Marquee3k.init();
@@ -24,13 +24,21 @@ Marquee3k.init();
 for (var i = 0; i < listeTypos.children.length; i++) {
 
 	listeTypos.children[i].addEventListener("click", function(event){
-	
-	event.preventDefault();
-	var url = event.currentTarget.getAttribute('data-url');
-	loadTypoContent(url);
-	var lien= url.split('/').pop();
+		
+		event.preventDefault();
+		var url = event.currentTarget.getAttribute('data-url');
+		
+		loadTypoContent(url);
+		
+		var lien=  url.split('/').pop();
 
-	history.pushState(url,null, lien);
+		console.log( url);
+		// var nouveauUrl = "typographies/"+lien
+
+		// console.log( "yo",document.querySelector("meta[name=base]").getAttribute("href") );
+
+
+		history.pushState(url,null, baseURL+"/typographies/"+lien);
 
 	});
 
@@ -269,20 +277,33 @@ function loadTypoContent(url){
 
 		// console.log(url);
 
-	fetch(url)
+	/*var req = new XMLHttpRequest();
+
+	req.open('GET', url, false);
+	req.setRequestHeader("HTTP_X_REQUESTED_WITH", "xmlhttprequest");
+	req.send(null);
+
+	if(req.status === 200){
+
+		console.log(req.responseText);
+
+	}else{
+		console.log("erreur");
+	}*/
+
+	console.log("ajax url",url);
+
+
+	fetch(url+"?ajax=true")
 	.then( function(res){
 		return res.text();
 		
 	})
 	.then(function(data){
 		
-
-
 		var corp = document.body;
 		var ficheTypo = document.getElementById("fichetypo");
 	
-
-		
 		if (blocPresent[0] == 1) {
 
 			while (ficheTypo.firstChild) {
@@ -298,26 +319,14 @@ function loadTypoContent(url){
   			}
 			blocPresent.splice(0,1,1)
 			ficheTypo.insertAdjacentHTML('beforeend', data);
-			
-
-
 
 		};
 
 		// url.stopPropagation();
 		// url.preventDefault();
 
-		
-		
-		
-		affichageTesteur();
-
-			
-		
+		affichageTesteur();		
 	});
-
-
-
 
 	
 }	
@@ -329,52 +338,49 @@ function loadTypoContent(url){
 
 function affichageTesteur(){
 
-var conteneur = document.getElementsByClassName("container");
-var afficherLeTesteur = document.getElementsByClassName("testeur");
-var fontSize = document.querySelectorAll('input');
+	var conteneur = document.getElementsByClassName("container");
+	var afficherLeTesteur = document.getElementsByClassName("testeur");
+	var fontSize = document.querySelectorAll('input');
 
-// console.log(afficherLeTesteur);
-var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
-var font = afficherLeTesteur[0].getAttribute("data-font");
-// var fontName = font.substr(0, font.lastIndexOf('.')) || font;
-var lien = document.getElementById("police");
+	// console.log(afficherLeTesteur);
+	var leGrosBool = afficherLeTesteur[0].getAttribute("data-boolean");
+	var font = afficherLeTesteur[0].getAttribute("data-font");
+	// var fontName = font.substr(0, font.lastIndexOf('.')) || font;
+	var lien = document.getElementById("police");
 
-var afficherLeTesteur = document.getElementsByClassName("testeur");
-var font = afficherLeTesteur[0].getAttribute("data-font");
-var url = font.split('/').pop();
-
-
+	var afficherLeTesteur = document.getElementsByClassName("testeur");
+	var font = afficherLeTesteur[0].getAttribute("data-font");
+	var url = font.split('/').pop();
 
 
 
+	if (leGrosBool == 1) {
+
+		
+		
+		conteneur[0].style.visibility = 'visible';
+		conteneur[0].style.fontFamily = font.split('/').pop();
+		afficherLeTesteur[0].style.visibility = 'visible';
+		fontSize[0].style.visibility = 'visible';
+		lien.setAttribute("href",baseURL+"/content/"+font+"/"+font.split('/').pop()+".css");
+
+	} 
+	else if (leGrosBool == 0) {
+		conteneur[0].style.display = 'none';
+		afficherLeTesteur[0].style.display = 'none';
+		fontSize[0].style.display = 'none';
+	}
+
+	var textDuTesteur = document.createTextNode(afficherLeTesteur[0].getAttribute("data-text"));
+	afficherLeTesteur[0].appendChild(textDuTesteur);
 
 
 
-if (leGrosBool == 1) {
-	
-	conteneur[0].style.visibility = 'visible';
-	conteneur[0].style.fontFamily = font.split('/').pop();
-	afficherLeTesteur[0].style.visibility = 'visible';
-	fontSize[0].style.visibility = 'visible';
-	lien.setAttribute("href","content/"+font+"/"+font.split('/').pop()+".css");
+	fontSize[0].addEventListener('input', function(){
 
-} 
-else if (leGrosBool == 0) {
-	conteneur[0].style.display = 'none';
-	afficherLeTesteur[0].style.display = 'none';
-	fontSize[0].style.display = 'none';
-}
-
-var textDuTesteur = document.createTextNode(afficherLeTesteur[0].getAttribute("data-text"));
-afficherLeTesteur[0].appendChild(textDuTesteur);
-
-
-
-fontSize[0].addEventListener('input', function(){
-
-		var v = this.value;
-		afficherLeTesteur[0].style.fontSize = v+"vh";
-		afficherLeTesteur[0].style.lineHeight = v>7 ? 1 : 1-v/70 ;
+			var v = this.value;
+			afficherLeTesteur[0].style.fontSize = v+"vh";
+			afficherLeTesteur[0].style.lineHeight = v>7 ? 1 : 1-v/70 ;
 
 	})
 

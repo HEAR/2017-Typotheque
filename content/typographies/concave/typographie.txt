@@ -14,7 +14,7 @@ Date: 2017-06-17
 
 ----
 
-Description: Superbe typographie
+Description: 
 
 ----
 
@@ -26,7 +26,7 @@ Testeur: 1
 
 ----
 
-Demotext: Hello World!
+Demotext: Zuckerbäckerstil, abwertend verschiedene Baustile die Bündner bzw. Engadiner Zuckerbäcker
 
 ----
 
