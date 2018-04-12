@@ -30,7 +30,7 @@ if( !isset($_GET['ajax']) ){
 
 <div class="description">
 
-<?php echo "header : ".$_SERVER['HTTP_X_REQUESTED_WITH']." ".$_GET['ajax']." <br>\n"; ?>
+<?php // echo "header : ".$_SERVER['HTTP_X_REQUESTED_WITH']." ".$_GET['ajax']." <br>\n"; ?>
 <!--dirname() diruri() root() ?> -->
 
 <p><?= $page->description()->kirbyText(); ?></p>
